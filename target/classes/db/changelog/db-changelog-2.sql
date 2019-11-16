@@ -1,7 +1,7 @@
 -- liquibase formatted sql
 -- changeset gabriel.oliveira:2.0 dbms:mysql
 
-INSERT INTO aplicacao.empresa (nome, documento, idade, vagas, site) VALUES
+INSERT INTO aplicacao.company (name, document, age, vacancies, site) VALUES
 ('Empresa 1','123456789','1','1','www.empresa1.com.br'),
 ('Empresa 2','3215468789','1','4','www.empresa2.com.br'),
 ('Empresa 3','87454512135','1','1','www.empresa3.com.br'),
@@ -10,7 +10,7 @@ INSERT INTO aplicacao.empresa (nome, documento, idade, vagas, site) VALUES
 
 -- changeset gabriel.oliveira:2.1 dbms:mysql
 
-INSERT INTO aplicacao.usuario (nome, documento, idade, login, senha, empresa_id, salario) VALUES
+INSERT INTO aplicacao.user (name, document, age, login, password, company_id, salary) VALUES
 ('Usuário 1','6544848956','20','user1','user1','1','2000.00'),
 ('Usuário 2','54532454353','23','user2','user2','2','2430.10'),
 ('Usuário 3','12421342134','54','user3','user3','5','5000.00'),

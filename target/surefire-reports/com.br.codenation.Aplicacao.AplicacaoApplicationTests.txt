@@ -1,13 +1,13 @@
 -------------------------------------------------------------------------------
 Test set: com.br.codenation.Aplicacao.AplicacaoApplicationTests
 -------------------------------------------------------------------------------
-Tests run: 1, Failures: 0, Errors: 1, Skipped: 0, Time elapsed: 6.052 s <<< FAILURE! - in com.br.codenation.Aplicacao.AplicacaoApplicationTests
-insercaoEmpresaTeste  Time elapsed: 0.002 s  <<< ERROR!
+Tests run: 1, Failures: 0, Errors: 1, Skipped: 0, Time elapsed: 7.2 s <<< FAILURE! - in com.br.codenation.Aplicacao.AplicacaoApplicationTests
+saveEmpresaTest  Time elapsed: 0.003 s  <<< ERROR!
 java.lang.IllegalStateException: Failed to load ApplicationContext
-Caused by: org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'empresaServiceImpl': Unsatisfied dependency expressed through field '_empresa'; nested exception is org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'empresaDAO': Invocation of init method failed; nested exception is java.lang.IllegalArgumentException: Validation failed for query for method public abstract java.util.List com.br.codenation.Aplicacao.domain.dao.EmpresaDAO.recuperarEmpresaPorNome(java.lang.String)!
-Caused by: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'empresaDAO': Invocation of init method failed; nested exception is java.lang.IllegalArgumentException: Validation failed for query for method public abstract java.util.List com.br.codenation.Aplicacao.domain.dao.EmpresaDAO.recuperarEmpresaPorNome(java.lang.String)!
-Caused by: java.lang.IllegalArgumentException: Validation failed for query for method public abstract java.util.List com.br.codenation.Aplicacao.domain.dao.EmpresaDAO.recuperarEmpresaPorNome(java.lang.String)!
-Caused by: java.lang.IllegalArgumentException: org.hibernate.hql.internal.ast.QuerySyntaxException: Empresa is not mapped [SELECT e FROM Empresa e WHERE e.nome LIKE :nome ORDER BY e.nome]
-Caused by: org.hibernate.hql.internal.ast.QuerySyntaxException: Empresa is not mapped [SELECT e FROM Empresa e WHERE e.nome LIKE :nome ORDER BY e.nome]
-Caused by: org.hibernate.hql.internal.ast.QuerySyntaxException: Empresa is not mapped
+Caused by: org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'userServiceImpl': Unsatisfied dependency expressed through field '_usuario'; nested exception is org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'userDAO': Invocation of init method failed; nested exception is java.lang.IllegalArgumentException: Validation failed for query for method public abstract void com.br.codenation.Aplicacao.domain.dao.UserDAO.changeName(java.lang.Long,java.lang.String)!
+Caused by: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'userDAO': Invocation of init method failed; nested exception is java.lang.IllegalArgumentException: Validation failed for query for method public abstract void com.br.codenation.Aplicacao.domain.dao.UserDAO.changeName(java.lang.Long,java.lang.String)!
+Caused by: java.lang.IllegalArgumentException: Validation failed for query for method public abstract void com.br.codenation.Aplicacao.domain.dao.UserDAO.changeName(java.lang.Long,java.lang.String)!
+Caused by: java.lang.IllegalArgumentException: org.hibernate.hql.internal.ast.QuerySyntaxException: User is not mapped [UPDATE User u SET u.name = :name WHERE u.id = :id]
+Caused by: org.hibernate.hql.internal.ast.QuerySyntaxException: User is not mapped [UPDATE User u SET u.name = :name WHERE u.id = :id]
+Caused by: org.hibernate.hql.internal.ast.QuerySyntaxException: User is not mapped
 
