@@ -8,9 +8,9 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface UserDAO extends JpaRepository<User, Long> {
-    @Query("UPDATE User u SET u.name = :name WHERE u.id = :id")
+    @Query("UPDATE user u SET u.name = :name WHERE u.id = :id")
     void changeName(@Param("id") Long id, @Param("name") String name);
 
-    @Query("UPDATE User u SET u.company.id = :idEmpresa WHERE u.id = :id")
+    @Query("UPDATE user u SET u.company = (SELECT c FROM company c WHERE c.id = :company_id) WHERE u.id = :id")
     void changeCompany(@Param("id") Long id, @Param("company_id") Long companyId);
 }

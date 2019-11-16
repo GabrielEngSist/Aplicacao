@@ -38,7 +38,7 @@ public class Company {
 	@Column(name = "age")
     private int age;
 
-    @OneToOne
+	@OneToOne(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     @JoinColumn(name = "address_id")
     private Address address;
 }

@@ -24,4 +24,5 @@ public class UserSaveRequestDto {
     private BigDecimal salary;
 
     private Long adressId;
+
 }

@@ -1,10 +1,15 @@
 package com.br.codenation.Aplicacao.contracts.requests;
 
+import com.br.codenation.Aplicacao.contracts.Dto.AddressDto;
+import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 @Data
 @Builder
+@AllArgsConstructor
+@NoArgsConstructor
 public class CompanySaveRequestDto {
     private int vacancies;
 
@@ -16,5 +21,5 @@ public class CompanySaveRequestDto {
 
     private int age;
 
-    private Long adressId;
+    private AddressDto address;
 }

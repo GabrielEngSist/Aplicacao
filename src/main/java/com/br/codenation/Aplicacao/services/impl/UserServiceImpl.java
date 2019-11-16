@@ -13,28 +13,28 @@ import javax.transaction.Transactional;
 public class UserServiceImpl implements UserService {
 
 	@Autowired
-	UserDAO _usuario;
+	UserDAO _userRepository;
 
 	@Override
 	@Transactional
 	public User save(User usuario) {
-		return _usuario.save(usuario);
+		return _userRepository.save(usuario);
 	}
 
 	@Override
 	@Transactional
 	public Boolean deleteById(Long id) {
-		_usuario.deleteById(id);
-		return _usuario.findById(id).equals(null);
+		_userRepository.deleteById(id);
+		return _userRepository.findById(id).equals(null);
 	}
 
 	@Override
 	public void changeCompany(User usuario, Company empresa) {
-		_usuario.changeCompany(usuario.getId(), empresa.getId());
+		_userRepository.changeCompany(usuario.getId(), empresa.getId());
 	}
 
 	@Override
 	public void changeName(User usuario, String nome) {
-		_usuario.changeName(usuario.getId(), nome);
+		_userRepository.changeName(usuario.getId(), nome);
 	}
 }

@@ -7,28 +7,34 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import javax.transaction.Transactional;
+import java.util.List;
 
 @Service
 public class CompanyServiceImpl implements CompanyService {
 
 	@Autowired
-    CompanyDAO _empresa;
+    CompanyDAO _companyRepository;
 
 	@Override
 	@Transactional
 	public Company save(Company empresa) {
-		return _empresa.save(empresa);
+		return _companyRepository.save(empresa);
 	}
 
 	@Override
 	@Transactional
 	public Boolean deleteById(Long id) {
-		_empresa.deleteById(id);
+		_companyRepository.deleteById(id);
 		return findById(id).equals(null);
 	}
 
 	@Override
 	public Company findById(Long idEmpresa) {
-		return _empresa.findById(idEmpresa).orElse(null);
+		return _companyRepository.findById(idEmpresa).orElse(null);
+	}
+
+	@Override
+	public List<Company> findByName(String nome) {
+		return _companyRepository.findCompanyByName(nome);
 	}
 }
