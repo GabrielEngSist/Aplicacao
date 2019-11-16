@@ -31,7 +31,7 @@ public class CompanyController {
 
 	@PostMapping("/api/v1/empresa")
 	public CompanySaveResponseDto save(@RequestBody CompanySaveRequestDto companyDto){
-		try {
+
 			Company company = convertCompanyDto(companyDto);
 			company = companyService.save(company);
 
@@ -39,12 +39,6 @@ public class CompanyController {
 					.id(company.getId())
 					.name(company.getName())
 					.build();
-
-		}catch (Exception ex){
-			logger.error(ex.getMessage());
-		}
-
-		return null;
 	}
 
 	private Company convertCompanyDto(CompanySaveRequestDto companyDto) {
