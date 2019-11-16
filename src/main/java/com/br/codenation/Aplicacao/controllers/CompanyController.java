@@ -1,57 +1,59 @@
 package com.br.codenation.Aplicacao.controllers;
 
-import com.br.codenation.Aplicacao.contracts.Dto.CompanyDto;
 import com.br.codenation.Aplicacao.contracts.requests.CompanySaveRequestDto;
-import com.br.codenation.Aplicacao.contracts.responses.CompanyResponseDto;
 import com.br.codenation.Aplicacao.contracts.responses.CompanySaveResponseDto;
 import com.br.codenation.Aplicacao.domain.entity.Address;
 import com.br.codenation.Aplicacao.domain.entity.Company;
 import com.br.codenation.Aplicacao.domain.entity.User;
-import com.br.codenation.Aplicacao.services.AddressService;
 import com.br.codenation.Aplicacao.services.CompanyService;
 import com.br.codenation.Aplicacao.services.impl.CompanyServiceImpl;
-import com.sun.org.apache.xalan.internal.xsltc.dom.AdaptiveResultTreeImpl;
+import javassist.NotFoundException;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+import com.br.codenation.Aplicacao.resources.*;
 
 import java.util.*;
 
 @RestController
 @RequestMapping("api/v1/company")
 public class CompanyController {
-	protected CompanyService companyService;
-	protected AddressService addressService;
+
+	@Autowired
+	protected CompanyService _companyService;
+
 	Logger logger = LoggerFactory.getLogger(CompanyServiceImpl.class);
 
 	@GetMapping
-	public List<CompanyResponseDto> findByName(@RequestParam String nome){
+	public ResponseEntity findByName(@RequestParam String nome){
 
-		List<Company> foundCompanys = companyService.findByName(nome);
+		List<Company> foundCompanies = _companyService.findByName(nome);
 
-		return new ArrayList<CompanyResponseDto>();
+		return ResponseEntity
+				.status(HttpStatus.FOUND)
+				.body(foundCompanies);
+	}
+
+	@DeleteMapping("/{id}")
+	// @ResponseStatus(HttpStatus.OK)
+	public ResponseEntity deleteById(@PathVariable("id") Long companyId) throws NotFoundException {
+		_companyService.deleteById(companyId);
+		return ResponseEntity.ok("Empresa deletada com sucesso!");
 	}
 
 	@PostMapping
 	public ResponseEntity save(@RequestBody CompanySaveRequestDto companyDto){
-			try {
-
 				Company company = convertCompanyDto(companyDto);
-				company = companyService.save(company);
+				company = _companyService.save(company);
 
-				return ResponseEntity.ok(CompanySaveResponseDto.builder()
+				return ResponseEntity.status(HttpStatus.CREATED)
+						.body(CompanySaveResponseDto.builder()
 						.id(company.getId())
 						.name(company.getName())
 						.build());
-
-			}catch (Error error){
-
-				return ResponseEntity
-						.badRequest()
-						.body("Falha ao salvar empresa: " + error.getMessage());
-
-			}
 	}
 
 	private Company convertCompanyDto(CompanySaveRequestDto companyDto) {

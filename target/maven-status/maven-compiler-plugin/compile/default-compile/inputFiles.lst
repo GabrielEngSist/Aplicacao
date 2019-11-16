@@ -1,6 +1,7 @@
 /home/gabriel/source/repos/Aplicacao/src/main/java/com/br/codenation/Aplicacao/domain/dao/CompanyDAO.java
 /home/gabriel/source/repos/Aplicacao/src/main/java/com/br/codenation/Aplicacao/services/impl/StatisticsServiceImpl.java
 /home/gabriel/source/repos/Aplicacao/src/main/java/com/br/codenation/Aplicacao/contracts/responses/CompanySaveResponseDto.java
+/home/gabriel/source/repos/Aplicacao/src/main/java/com/br/codenation/Aplicacao/jobs/CompanyJobs.java
 /home/gabriel/source/repos/Aplicacao/src/main/java/com/br/codenation/Aplicacao/domain/dao/AddressDAO.java
 /home/gabriel/source/repos/Aplicacao/src/main/java/com/br/codenation/Aplicacao/ServletInitializer.java
 /home/gabriel/source/repos/Aplicacao/src/main/java/com/br/codenation/Aplicacao/services/AddressService.java

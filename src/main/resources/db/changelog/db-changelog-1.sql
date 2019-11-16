@@ -4,7 +4,7 @@
 CREATE DATABASE IF NOT EXISTS aplicacao;
 CREATE TABLE IF NOT EXISTS aplicacao.address(
     id          BIGINT NOT NULL AUTO_INCREMENT,
-    zipCode         VARCHAR(8) NOT NULL,
+    zip_code         VARCHAR(8) NOT NULL,
     street  VARCHAR(100) NOT NULL,
     number      VARCHAR(10) NOT NULL,
     state      VARCHAR(2) NOT NULL,

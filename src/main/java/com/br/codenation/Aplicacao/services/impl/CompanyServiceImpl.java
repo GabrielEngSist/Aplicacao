@@ -3,6 +3,7 @@ package com.br.codenation.Aplicacao.services.impl;
 import com.br.codenation.Aplicacao.domain.dao.CompanyDAO;
 import com.br.codenation.Aplicacao.domain.entity.Company;
 import com.br.codenation.Aplicacao.services.CompanyService;
+import javassist.NotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -23,9 +24,14 @@ public class CompanyServiceImpl implements CompanyService {
 
 	@Override
 	@Transactional
-	public Boolean deleteById(Long id) {
-		_companyRepository.deleteById(id);
-		return findById(id).equals(null);
+	public Boolean deleteById(Long id) throws NotFoundException {
+
+		try {
+			_companyRepository.deleteById(id);
+			return true;
+		} catch (Error e) {
+			throw new NotFoundException("Empresa não encontrada com o Identificador" + id);
+		}
 	}
 
 	@Override
@@ -37,4 +43,10 @@ public class CompanyServiceImpl implements CompanyService {
 	public List<Company> findByName(String nome) {
 		return _companyRepository.findCompanyByName(nome);
 	}
+
+	@Override
+	public Long countCompanies(){
+		return _companyRepository.count();
+	}
+
 }

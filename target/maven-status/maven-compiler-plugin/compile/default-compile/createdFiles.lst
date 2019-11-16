@@ -31,6 +31,7 @@ com/br/codenation/Aplicacao/domain/dao/UserDAO.class
 com/br/codenation/Aplicacao/contracts/requests/CompanySaveRequestDto.class
 com/br/codenation/Aplicacao/controllers/CompanyController.class
 com/br/codenation/Aplicacao/contracts/requests/UserSaveRequestDto.class
+com/br/codenation/Aplicacao/jobs/CompanyJobs.class
 com/br/codenation/Aplicacao/services/impl/UserServiceImpl.class
 com/br/codenation/Aplicacao/domain/entity/Address$AddressBuilder.class
 com/br/codenation/Aplicacao/contracts/Dto/AddressDto$AddressDtoBuilder.class
