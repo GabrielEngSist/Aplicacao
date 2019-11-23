@@ -17,10 +17,10 @@ public class CompanyJobs {
 
     @Scheduled(fixedRate = 10000)
     public void countCompanys(){
-        logger.info("#### START VERIFY COUNT COMPANIES");
-        Long count = _companyService.countCompanies();
-        logger.info("#### FOUND {} COMPANIES", count);
-        logger.info("#### END VERIFY COUNT COMPANIES");
+//        logger.info("#### START VERIFY COUNT COMPANIES");
+//        Long count = _companyService.countCompanies();
+//        logger.info("#### FOUND {} COMPANIES", count);
+//        logger.info("#### END VERIFY COUNT COMPANIES");
     }
 
 }

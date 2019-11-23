@@ -7,6 +7,7 @@ import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
 import java.math.BigDecimal;
+import java.util.List;
 
 @Data
 @NoArgsConstructor
@@ -29,8 +30,8 @@ public class User {
     @Column(name = "age")
     private int age;
 
-    @Column(name = "login", nullable = false, length = 255)
-    private String login;
+    @Column(name = "username", nullable = false, length = 255)
+    private String username;
 
     @Column(name = "password", nullable = false, length = 255)
     private String password;
@@ -45,4 +46,11 @@ public class User {
     @OneToOne
     @JoinColumn(name = "address_id")
     private Address address;
+
+    @ManyToMany(fetch = FetchType.EAGER)
+    @JoinTable(name="user_role",
+            joinColumns = @JoinColumn(name = "user_id"),
+            inverseJoinColumns = @JoinColumn(name = "role_id")
+    )
+    private List<Role> roles;
 }

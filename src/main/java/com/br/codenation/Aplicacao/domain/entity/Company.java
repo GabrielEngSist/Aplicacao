@@ -26,7 +26,7 @@ public class Company {
 	@Column(name = "site", nullable = false, length = 255)
     private String site;
 
-	@OneToMany(mappedBy = "id", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+	@OneToMany(mappedBy = "id", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     private List<User> users;
 
 	@Column(name = "name", nullable = false, length = 255)
