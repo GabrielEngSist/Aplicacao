@@ -37,7 +37,7 @@ public class User {
     private String password;
 
     @ManyToOne
-	@JoinColumn(name = "company_id")
+	@JoinColumn(name = "company_id", nullable = true)
     private Company company;
 
     @Column(name = "salary")
