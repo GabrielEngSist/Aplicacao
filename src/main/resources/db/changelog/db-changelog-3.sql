@@ -1,5 +1,5 @@
--- changeset gabriel.oliveira:3.0 dbms:mysql
 -- liquibase formatted sql
+-- changeset gabriel.oliveira:3.0 dbms:mysql
 CREATE TABLE aplicacao.role
 (
     id   BIGINT auto_increment,
@@ -7,7 +7,7 @@ CREATE TABLE aplicacao.role
     CONSTRAINT role_pk PRIMARY KEY (id)
 );
 
--- changeset gabriel.oliveira:2.1 dbms:mysql
+-- changeset gabriel.oliveira:3.1 dbms:mysql
 INSERT INTO aplicacao.role
 (name)
 VALUES      ('ADMIN'),
