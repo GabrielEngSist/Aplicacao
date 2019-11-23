@@ -37,4 +37,9 @@ public class UserServiceImpl implements UserService {
 	public void changeName(User usuario, String nome) {
 		_userRepository.changeName(usuario.getId(), nome);
 	}
+
+	@Override
+	public User findByUsername(String name) {
+		return _userRepository.findByUsername(name);
+	}
 }

@@ -13,4 +13,5 @@ public interface UserService {
 
 	void changeName(User user, String name);
 
+	User findByUsername(String name);
 }

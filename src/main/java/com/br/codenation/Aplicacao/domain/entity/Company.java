@@ -1,5 +1,6 @@
 package com.br.codenation.Aplicacao.domain.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -27,6 +28,7 @@ public class Company {
     private String site;
 
 	@OneToMany(mappedBy = "id", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+	@JsonIgnore
     private List<User> users;
 
 	@Column(name = "name", nullable = false, length = 255)
