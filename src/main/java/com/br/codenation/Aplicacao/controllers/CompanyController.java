@@ -1,5 +1,6 @@
 package com.br.codenation.Aplicacao.controllers;
 
+import com.br.codenation.Aplicacao.contracts.Dto.CompanySalaryDto;
 import com.br.codenation.Aplicacao.contracts.requests.CompanySaveRequestDto;
 import com.br.codenation.Aplicacao.contracts.responses.CompanySaveResponseDto;
 import com.br.codenation.Aplicacao.domain.entity.Address;
@@ -13,8 +14,8 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.util.RouteMatcher;
 import org.springframework.web.bind.annotation.*;
-import com.br.codenation.Aplicacao.resources.*;
 
 import java.util.*;
 
@@ -55,6 +56,12 @@ public class CompanyController {
 						.name(company.getName())
 						.build());
 	}
+
+	@GetMapping(value = "/averageSalaries")
+	public ResponseEntity getAverageSalaryPerCompany(){
+		return ResponseEntity.ok(_companyService.getAverageSalaryPerCompany());
+	}
+
 
 	private Company convertCompanyDto(CompanySaveRequestDto companyDto) {
 
