@@ -1,0 +1,3 @@
+pipeline {
+   echo 'true'
+}
